@@ -1,0 +1,5 @@
+<h3>Crypto Form Example
+
+<form action=@{CryptoFormR} method=post enctype=#{formEnctype}>
+  ^{formWidget}
+  <button>Encrypt and Send my Message!

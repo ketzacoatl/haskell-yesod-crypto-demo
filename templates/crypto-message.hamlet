@@ -1,0 +1,13 @@
+<h3>Crypto Form Example
+
+<form action=@{CryptoFormR} method=post enctype=#{formEnctype}>
+  ^{formWidget}
+  <button>Encrypt and Send my Message!
+
+<h3>Message, encrypted:
+<ul>
+  <li>Message Subject: #{messageSubject entry}
+  <li>Reply To Address: #{replyTo entry}
+  <li>Message Contents (Encrypted): #{encryptedMessage}
+  <li>Message Contents (Plaintext): #{plaintextMessage}
+
