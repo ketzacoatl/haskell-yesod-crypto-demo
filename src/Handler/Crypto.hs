@@ -5,6 +5,10 @@
 {-# LANGUAGE TypeFamilies #-}
 module Handler.Crypto where
 
+import Crypto.Gpgme
+import Control.Monad.Trans.Maybe (MaybeT(..), runMaybeT)
+import Data.Either (fromRight)
+
 import Import
 
 type Email = Text
@@ -40,7 +44,7 @@ postCryptoFormR = do
       FormSuccess entry -> defaultLayout $ do
         -- run crypto operation here, and then display the value
         let plaintextMessage = (messageContents entry)
-            encryptedMessage = (messageContents entry)
+            encryptedMessage = encryptMessage (encodeUtf8 (unTextarea plaintextMessage))
         setTitle "Crypto Example!"
         $(widgetFile "crypto-message")
 
@@ -48,3 +52,13 @@ postCryptoFormR = do
       _ -> defaultLayout $ do
         setTitle "Crypto Example!"
         $(widgetFile "crypto-form")
+
+
+localTestPubKey = "588EE2A6BA9E259108DF2143556339DC653AA738"
+
+--encryptMessage :: Textarea ->
+encryptMessage plaintext = do
+    Just enc <- withCtx "crypto" "C" OpenPGP $ \bCtx -> runMaybeT $ do
+        aPubKey <- MaybeT $ getKey bCtx localTestPubKey NoSecret
+        fromRight $ encrypt bCtx [aPubKey] NoFlag plaintext
+    return enc
