@@ -8,6 +8,6 @@
 <ul>
   <li>Message Subject: #{messageSubject entry}
   <li>Reply To Address: #{replyTo entry}
-  <li>Message Contents (Encrypted): #{encryptedMessage}
+  <li>Message Contents (Encrypted): #{decodeUtf8 encryptedMessage}
   <li>Message Contents (Plaintext): #{plaintextMessage}
 

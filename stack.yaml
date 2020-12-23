@@ -39,8 +39,9 @@ packages:
 # - git: https://github.com/commercialhaskell/stack.git
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 extra-deps:
-- "h-gpgme-0.5.1.0@sha256:77ecd6fb4ddf7e1d868a8516ccfd807d77d56c29811a4adfef22ac4d80c9c5fc,3117"
-- "bindings-gpgme-0.1.7@sha256:b486a4a93e614111b637c6ff7e719c19f3f7d921cbf50930e112e3948246e688,1009"
+- "cryptostore-0.2.1.0@sha256:9896e2984f36a1c8790f057fd5ce3da4cbcaf8aa73eb2d9277916886978c5b19,3881"
+#- "h-gpgme-0.5.1.0@sha256:77ecd6fb4ddf7e1d868a8516ccfd807d77d56c29811a4adfef22ac4d80c9c5fc,3117"
+#- "bindings-gpgme-0.1.7@sha256:b486a4a93e614111b637c6ff7e719c19f3f7d921cbf50930e112e3948246e688,1009"
 
 #
 # extra-deps: []
